@@ -146,3 +146,49 @@ console.log("Perímetro do quadrado:", quadrado.calcularPerimetro());
 let circulo = new Circulo(3);
 console.log("Área do círculo:", circulo.calcularArea());
 console.log("Perímetro do círculo:", circulo.calcularPerimetro());
+
+
+/* Composição de Objetos:
+• Crie uma classe Motor com métodos como ligar e desligar.
+• Em seguida, crie uma classe Carro que possui uma instância de Motor.
+• Implemente métodos em Carro que delegam chamadas aos métodos correspondentes em 
+Motor.
+• Teste a funcionalidade ligando e desligando o carro. */
+
+class Motor {
+  private ligado: boolean;
+
+  constructor() {
+    this.ligado = false;
+  }
+
+  ligar(): void {
+    this.ligado = true;
+    console.log("Ligando motor...");
+  }
+
+  desligar(): void {
+    this.ligado = false;
+    console.log("Desligando motor...");
+  }
+}
+
+class Carro {
+  private motor: Motor;
+
+  constructor() {
+    this.motor = new Motor();
+  }
+
+  ligar(): void {
+    this.motor.ligar();
+  }
+
+  desligar(): void {
+    this.motor.desligar();
+  }
+}
+
+let carro = new Carro();
+carro.ligar();
+carro.desligar();
