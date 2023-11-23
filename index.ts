@@ -96,3 +96,53 @@ class Calculadora {
  console.log(calc.divisao(10, 2));
  
  console.log(Calculadora.valorAbsoluto(-100));
+
+/*  Interfaces e Implementação:
+• Crie uma interface FormaGeometrica com métodos como calcularArea e calcularPerimetro.
+• Implemente a interface em classes como Quadrado e Círculo.
+• Instancie objetos dessas classes e chame seus métodos. */
+
+interface FormaGeometrica {
+  calcularArea(): number;
+  calcularPerimetro(): number;
+}
+
+class Quadrado implements FormaGeometrica {
+  private lado: number;
+
+  constructor(lado: number) {
+    this.lado = lado;
+  }
+
+  calcularArea(): number {
+    return this.lado * this.lado;
+  }
+
+  calcularPerimetro(): number {
+    return this.lado * 4;
+  }
+}
+
+class Circulo implements FormaGeometrica {
+  private raio: number;
+
+  constructor(raio: number) {
+    this.raio = raio;
+  }
+
+  calcularArea(): number {
+    return Math.PI * this.raio * this.raio;
+  }
+
+  calcularPerimetro(): number {
+    return 2 * Math.PI * this.raio;
+  }
+}
+
+let quadrado = new Quadrado(3);
+console.log("Área do quadrado:", quadrado.calcularArea());
+console.log("Perímetro do quadrado:", quadrado.calcularPerimetro());
+
+let circulo = new Circulo(3);
+console.log("Área do círculo:", circulo.calcularArea());
+console.log("Perímetro do círculo:", circulo.calcularPerimetro());
