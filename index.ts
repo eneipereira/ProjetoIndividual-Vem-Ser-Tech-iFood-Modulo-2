@@ -59,3 +59,40 @@ class Animal {
  
  cachorro.mover();
  passaro.mover();
+
+ /* Encapsulamento e Métodos Estáticos:
+• Crie uma classe Calculadora com métodos de operações matemáticas (soma, subtração, 
+multiplicação, divisão).
+• Encapsule as operações matemáticas, permitindo apenas o acesso através dos métodos da 
+classe.
+• Adicione um método estático que retorna o valor absoluto de um número. */
+
+class Calculadora {
+  soma(a: number, b: number): number {
+    return a + b;
+  }
+
+  subtracao(a: number, b: number): number {
+    return a - b;
+  }
+
+  multiplicacao(a: number, b: number): number {
+    return a * b;
+  }
+
+  divisao(a: number, b: number): number {
+    return a / b;
+  }
+
+  static valorAbsoluto(numero: number): number {
+    return Math.abs(numero);
+  }
+}
+ 
+ let calc = new Calculadora();
+ console.log(calc.soma(5, 5));
+ console.log(calc.subtracao(10, 5));
+ console.log(calc.multiplicacao(2, 5));
+ console.log(calc.divisao(10, 2));
+ 
+ console.log(Calculadora.valorAbsoluto(-100));
